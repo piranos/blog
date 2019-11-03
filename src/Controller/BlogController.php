@@ -57,32 +57,4 @@ class BlogController extends AbstractController
             'form' => $form->createView()
         ]);
     }
-
-    /**
-     * @Route("/reaction/new", name="reaction.create")
-     */
-    public function createReaction(Request $request, $postId = null)
-    {
-        if ($postId) {
-            $post = $this->em->getRepository(Post::class)->find($postId);
-        } else {
-            $post = new Post;
-        }
-
-        $form = $this->createForm(reactionType::class, $post);
-
-        $form->handleRequest($request);
-        if ($form->isSubmitted() && $form->isValid()) {
-            $post = $form->getData();
-
-            $this->em->persist($post);
-            $this->em->flush();
-
-            return $this->redirectToRoute('post.index');
-        }
-
-        return $this->render('post/new.html.twig', [
-            'form' => $form->createView(),
-        ]);
-    }
 }
