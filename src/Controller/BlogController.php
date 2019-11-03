@@ -22,7 +22,7 @@ class BlogController extends AbstractController
         $this->em = $em;
     }
     /**
-     * @Route("/blog", name="blog.index")
+     * @Route("/", name="blog.index")
      * 
      * @return Response
      */

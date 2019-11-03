@@ -11,7 +11,7 @@ use App\Forms\PostType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 
 /**
- * 
+ * @route("/admin/posts")
  */
 class PostController extends AbstractController
 {
@@ -24,7 +24,7 @@ class PostController extends AbstractController
     }
 
     /**
-     * @Route("/posts", name="post.index")
+     * @Route("/", name="post.index")
      * 
      * @return Response
      */
@@ -38,8 +38,8 @@ class PostController extends AbstractController
     }
 
     /**
-     * @Route("/post/new", name="post.create")
-     * @Route("/post/edit/{postId}", name="post.edit")
+     * @Route("/new", name="post.create")
+     * @Route("/edit/{postId}", name="post.edit")
      * 
      * @param Request $request
      * @param $postId
@@ -72,7 +72,7 @@ class PostController extends AbstractController
     }
 
     /**
-     * @Route("/post/remove/{postId}", name="post.remove")
+     * @Route("/remove/{postId}", name="post.remove")
      *
      * @param Request $request
      * @param int $postId
