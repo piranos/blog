@@ -99,6 +99,18 @@
     "psr/log": {
         "version": "1.1.2"
     },
+    "symfony/apache-pack": {
+        "version": "1.0",
+        "recipe": {
+            "repo": "github.com/symfony/recipes-contrib",
+            "branch": "master",
+            "version": "1.0",
+            "ref": "c82bead70f9a4f656354a193df7bf0ca2114efa0"
+        },
+        "files": [
+            "./public/.htaccess"
+        ]
+    },
     "symfony/cache": {
         "version": "v4.3.6"
     },
@@ -247,11 +259,37 @@
     "symfony/stopwatch": {
         "version": "v4.3.6"
     },
+    "symfony/translation-contracts": {
+        "version": "v1.1.7"
+    },
+    "symfony/twig-bridge": {
+        "version": "v4.3.6"
+    },
+    "symfony/twig-bundle": {
+        "version": "3.3",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "master",
+            "version": "3.3",
+            "ref": "7e5911186d596214c14dd28305485a3c143ee746"
+        },
+        "files": [
+            "./config/packages/twig.yaml",
+            "./config/routes/dev/twig.yaml",
+            "./templates/base.html.twig"
+        ]
+    },
+    "symfony/var-dumper": {
+        "version": "v4.3.6"
+    },
     "symfony/var-exporter": {
         "version": "v4.3.6"
     },
     "symfony/yaml": {
         "version": "v4.3.6"
+    },
+    "twig/twig": {
+        "version": "v2.12.1"
     },
     "zendframework/zend-code": {
         "version": "3.4.0"
