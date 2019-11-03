@@ -23,6 +23,8 @@ class BlogController extends AbstractController
     }
     /**
      * @Route("/blog", name="blog.index")
+     * 
+     * @return Response
      */
     public function index()
     {
@@ -35,6 +37,11 @@ class BlogController extends AbstractController
 
     /**
      * @Route("/blog/{postId}", name="blog.post")
+     *
+     * @param Request $request
+     * @param $postId
+     * 
+     * @return Response
      */
     public function showPost(Request $request, $postId)
     {

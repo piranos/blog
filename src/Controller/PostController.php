@@ -22,8 +22,11 @@ class PostController extends AbstractController
     {
         $this->em = $em;
     }
+
     /**
      * @Route("/posts", name="post.index")
+     * 
+     * @return Response
      */
     public function index()
     {
@@ -37,6 +40,11 @@ class PostController extends AbstractController
     /**
      * @Route("/post/new", name="post.create")
      * @Route("/post/edit/{postId}", name="post.edit")
+     * 
+     * @param Request $request
+     * @param $postId
+     * 
+     * @return Response
      */
     public function createPost(Request $request, $postId = null)
     {
@@ -68,7 +76,8 @@ class PostController extends AbstractController
      *
      * @param Request $request
      * @param int $postId
-     * @return void
+     * 
+     * @return response
      */
     public function deletePost(Request $request, $postId)
     {
