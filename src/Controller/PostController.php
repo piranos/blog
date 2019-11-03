@@ -91,7 +91,7 @@ class PostController extends AbstractController
             $this->em->remove($post);
             $this->em->flush();
 
-            return $this->redirectToRoute('task_success');
+            return $this->redirectToRoute('post.index');
         }
 
         return $this->render('post/confirm_removal.html.twig', [

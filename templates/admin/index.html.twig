@@ -1,2 +1,6 @@
-<h2>{{ post_count }} posts</h2>
-<a href="{{ path('post.index') }}">manage posts</a>
+{% extends "admin/base.html.twig" %}
+
+{% block content %}
+        <h2>{{ post_count }} posts</h2>
+        <a href="{{ path('post.index') }}">manage posts</a>
+{% endblock %}

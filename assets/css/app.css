@@ -1,0 +1,59 @@
+body {
+  background-color: lightgray;
+}
+
+.post,
+.blog__post {
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 5px;
+  padding: 6px;
+
+  background-color: white;
+  border-radius: 12px;
+}
+
+.post__content,
+.post__header {
+  text-align: center;
+}
+
+.post__reactions {
+  background-color: white;
+  padding: 10px;
+  width: 80%;
+  margin: auto;
+  border-radius: 10px;
+}
+
+.reaction {
+  border-bottom: 1px solid gray;
+}
+
+textarea,
+input {
+  width: 100%;
+}
+
+.admin__content,
+.admin__menu {
+  position: absolute;
+  top: 10px;
+  background-color: white;
+  padding: 10px;
+}
+
+.admin__content {
+  width: 60%;
+  right: 10%;
+}
+
+.admin__menu {
+  width: 20%;
+  left: 10%;
+}
+
+.admin__menu > a {
+  display: block;
+}

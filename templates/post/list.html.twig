@@ -1,12 +1,15 @@
+{% extends "admin/base.html.twig" %}
 
-<div class="button__container">
-    <a class="button-new" href="{{ path('post.create') }}">new</a>
-</div>
-
-{% for post in posts %}
-    <div class="blog__post">
-        {{ post.title }} 
-        <a href="{{ path('post.edit', {postId: post.id}) }}">edit</a>
-        <a href="{{ path('post.remove', {postId: post.id}) }}">delete</a>
+{% block content %}
+    <div class="button__container">
+        <a class="button-new" href="{{ path('post.create') }}">new</a>
     </div>
-{% endfor %}
+
+    {% for post in posts %}
+        <div class="blog__post">
+            {{ post.title }} 
+            <a href="{{ path('post.edit', {postId: post.id}) }}">edit</a>
+            <a href="{{ path('post.remove', {postId: post.id}) }}">delete</a>
+        </div>
+    {% endfor %}
+{% endblock %}

@@ -1,2 +1,6 @@
-are you sure you want to remove the post "{{ post.title }}"?
-{{ form(form) }}
+{% extends "admin/base.html.twig" %}
+
+{% block content %}
+    are you sure you want to remove the post "{{ post.title }}"?
+    {{ form(form) }}
+{% endblock %}

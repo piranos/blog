@@ -1,0 +1,14 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+    <div class="admin__menu">
+    {% block menu %}
+        <h2>posts</h2>
+        <a href="{{ path('post.create') }}">new post</a>
+        <a href="{{ path('post.index') }}">manage posts</a>
+    {% endblock %}
+    </div>
+    <div class="admin__content">
+        {% block content %}{% endblock %}
+    </div>
+{% endblock %}

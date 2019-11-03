@@ -1,17 +1,23 @@
-<div class="post__header">
-    <h1>{{ post.title }}</h1>
-</div>
+{% extends "base.html.twig" %}
 
-<div class="post__content">
-    {{ post.message }}
-</div>
+{% block body %}
+    <div class="post">
+        <div class="post__header">
+            <h1>{{ post.title }}</h1>
+        </div>
 
-<div class="post__reactions">
-    <div class="reaction__form">
-        {{ form(form) }}
+        <div class="post__content">
+            {{ post.message }}
+        </div>
     </div>
 
-    {% for reaction in post.reactions %}
-        {{ include("blog/reaction.html.twig", {reaction: reaction}) }}
-    {% endfor %}
-</div>
+    <div class="post__reactions">
+        <div class="reaction__form">
+            {{ form(form) }}
+        </div>
+
+        {% for reaction in post.reactions %}
+            {{ include("blog/reaction.html.twig", {reaction: reaction}) }}
+        {% endfor %}
+    </div>
+{% endblock %}
