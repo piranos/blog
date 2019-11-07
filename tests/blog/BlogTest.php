@@ -47,7 +47,6 @@ class BlogTest extends WebTestCase
             ->link();
 
         $crawler = $client->click($link);
-        // dd($crawler);
         $form = $crawler->selectButton('Publish')->form();
         // set some values
         $form['reaction[name]'] = 'test name';
