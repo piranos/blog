@@ -40,8 +40,14 @@ class BlogTest extends WebTestCase
     public function testCreateReaction()
     {
         $client = static::createClient();
-        $crawler = $client->request('GET', '/blog/1');
+        $crawler = $client->request('GET', '/');
+        $link = $crawler
+            ->filter('.blog__post a')
+            ->eq(1)
+            ->link();
 
+        $crawler = $client->click($link);
+        // dd($crawler);
         $form = $crawler->selectButton('Publish')->form();
         // set some values
         $form['reaction[name]'] = 'test name';
@@ -49,7 +55,7 @@ class BlogTest extends WebTestCase
 
         // submit the form
         $crawler = $client->submit($form);
-        $crawler = $client->request('GET', '/blog/1');
+
         $this->assertGreaterThan(0, $crawler->filter('.reaction__publisher:contains("test name")')->count());
         $this->assertGreaterThan(0, $crawler->filter('.reaction__body:contains("Just leaving a reaction!")')->count());
     }
