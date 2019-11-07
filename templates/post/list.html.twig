@@ -7,8 +7,8 @@
 
     {% for post in posts %}
         <div class="blog__post">
-            {{ post.title }} 
-            <a href="{{ path('post.edit', {postId: post.id}) }}">edit</a>
+            {{ post.title }}
+            <a href="{{ path('post.edit', {post: post.id}) }}">edit</a>
             <a href="{{ path('post.remove', {postId: post.id}) }}">delete</a>
         </div>
     {% endfor %}

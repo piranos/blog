@@ -39,14 +39,12 @@ class BlogController extends AbstractController
      * @Route("/blog/{postId}", name="blog.post")
      *
      * @param Request $request
-     * @param $postId
+     * @param Post $postId
      * 
      * @return Response
      */
-    public function showPost(Request $request, $postId)
+    public function showPost(Request $request, Post $post)
     {
-        $post = $this->em->getRepository(Post::class)->find($postId);
-
         $form = $this->createForm(reactionType::class);
 
         $form->handleRequest($request);

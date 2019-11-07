@@ -39,18 +39,16 @@ class PostController extends AbstractController
 
     /**
      * @Route("/new", name="post.create")
-     * @Route("/edit/{postId}", name="post.edit")
+     * @Route("/edit/{post}", name="post.edit")
      * 
      * @param Request $request
-     * @param $postId
+     * @param Post $postId
      * 
      * @return Response
      */
-    public function createPost(Request $request, $postId = null)
+    public function createPost(Request $request, Post $post = null)
     {
-        if ($postId) {
-            $post = $this->em->getRepository(Post::class)->find($postId);
-        } else {
+        if (!$post) {
             $post = new Post;
         }
 
