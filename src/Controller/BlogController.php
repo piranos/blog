@@ -36,7 +36,7 @@ class BlogController extends AbstractController
     }
 
     /**
-     * @Route("/blog/{postId}", name="blog.post")
+     * @Route("/blog/{post}", name="blog.post")
      *
      * @param Request $request
      * @param Post $postId

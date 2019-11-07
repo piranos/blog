@@ -4,8 +4,8 @@
     {% for post in posts %}
         <div class="blog__post">
             <h2>{{ post.title }}</h2>
-            {{ post.message|length > 50 ? post.message|slice(0, 50) ~ '...' : post.message   }} 
-            <a href="{{ path('blog.post', {postId: post.id}) }}">read more<a>
+            {{ post.message|length > 50 ? post.message|slice(0, 50) ~ '...' : post.message   }}
+            <a href="{{ path('blog.post', {post: post.id}) }}">read more</a>
         </div>
     {% endfor %}
 {% endblock %}

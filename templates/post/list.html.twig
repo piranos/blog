@@ -9,7 +9,7 @@
         <div class="blog__post">
             {{ post.title }}
             <a href="{{ path('post.edit', {post: post.id}) }}">edit</a>
-            <a href="{{ path('post.remove', {postId: post.id}) }}">delete</a>
+            <a href="{{ path('post.remove', {post: post.id}) }}">delete</a>
         </div>
     {% endfor %}
 {% endblock %}

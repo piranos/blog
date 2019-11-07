@@ -39,19 +39,26 @@ class PostController extends AbstractController
 
     /**
      * @Route("/new", name="post.create")
-     * @Route("/edit/{post}", name="post.edit")
      * 
      * @param Request $request
-     * @param Post $postId
      * 
      * @return Response
      */
-    public function createPost(Request $request, Post $post = null)
+    public function createPost(Request $request)
     {
-        if (!$post) {
-            $post = new Post;
-        }
+        return $this->editPost($request, new Post);
+    }
 
+    /**
+     * @Route("/edit/{post}", name="post.edit")
+     *
+     * @param Request $request
+     * @param Post $post
+     * 
+     * @return Response
+     */
+    public function editPost(Request $request, Post $post)
+    {
         $form = $this->createForm(PostType::class, $post);
 
         $form->handleRequest($request);
@@ -70,16 +77,15 @@ class PostController extends AbstractController
     }
 
     /**
-     * @Route("/remove/{postId}", name="post.remove")
+     * @Route("/remove/{post}", name="post.remove")
      *
      * @param Request $request
-     * @param int $postId
+     * @param Post $post
      * 
      * @return response
      */
-    public function deletePost(Request $request, $postId)
+    public function deletePost(Request $request, Post $post)
     {
-        $post = $this->em->getRepository(Post::class)->find($postId);
         $form = $this->createFormBuilder()
             ->add("confirm", SubmitType::class)
             ->getForm();
