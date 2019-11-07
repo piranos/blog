@@ -13,7 +13,7 @@ class BlogTest extends WebTestCase
     {
         $client = static::createClient();
 
-        $crawler = $client->request('GET', '/post/new');
+        $crawler = $client->request('GET', '/admin/posts/new');
         $form = $crawler->selectButton('Publish')->form();
         // set some values
         $form['post[title]'] = 'test post';
@@ -22,7 +22,7 @@ class BlogTest extends WebTestCase
         // submit the form
         $crawler = $client->submit($form);
 
-        $crawler = $client->request('GET', '/blog');
+        $crawler = $client->request('GET', '/');
         $this->assertGreaterThan(0, $crawler->filter('h2:contains("test post")')->count());
 
         $link = $crawler
