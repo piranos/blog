@@ -12,9 +12,9 @@ class BlogTest extends WebTestCase
     public function testCreatePost()
     {
         $client = static::createClient();
-
         $crawler = $client->request('GET', '/admin/posts/new');
         $form = $crawler->selectButton('Publish')->form();
+
         // set some values
         $form['post[title]'] = 'test post';
         $form['post[message]'] = 'Hey there!';
@@ -45,9 +45,9 @@ class BlogTest extends WebTestCase
             ->filter('.blog__post a')
             ->eq(1)
             ->link();
-
         $crawler = $client->click($link);
         $form = $crawler->selectButton('Publish')->form();
+
         // set some values
         $form['reaction[name]'] = 'test name';
         $form['reaction[message]'] = 'Just leaving a reaction!';
