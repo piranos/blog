@@ -40,8 +40,7 @@ class BlogTest extends WebTestCase
     public function testCreateReaction()
     {
         $client = static::createClient();
-        $crawler = $client->request('GET', '/');
-        $link = $crawler
+        $link =  $client->request('GET', '/')
             ->filter('.blog__post a')
             ->eq(1)
             ->link();
